@@ -1,0 +1,18 @@
+﻿<Window x:Class="Midterms_2324_PLA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterms_2324_PLA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid>
+
+        <Button x:Name="btn_login" Content="Login" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" Width="95" Height="35" Click="btn_login_Click"/>
+        <Label Content="Username:" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="71,128,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_UserId" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="176,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" Height="29"/>
+        <Label Content="Password:" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="71,173,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_pass" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="176,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" Height="29"/>
+
+    </Grid>
+</Window>

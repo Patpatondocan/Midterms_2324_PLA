@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MidtermsDatabase" Class="Database_midtermsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-BNU33RO\SQLEXPRESS01;Initial Catalog=MidtermsDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Midterms_2324_PLA.Properties.Settings" SettingsPropertyName="MidtermsDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Db_Users" Member="Db_Users">
+    <Type Name="Db_User">
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Db_User_Db_Transaction" Member="Db_Transactions" ThisKey="UserID" OtherKey="UserID" Type="Db_Transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Db_Transaction" Member="Db_Transactions">
+    <Type Name="Db_Transaction">
+      <Column Name="TransactionID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PTquantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="PTdatetime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Db_Transaction_Db_Product" Member="Db_Product" ThisKey="TransactionID" OtherKey="Pid" Type="Db_Product" Cardinality="One" />
+      <Association Name="Db_User_Db_Transaction" Member="Db_User" ThisKey="UserID" OtherKey="UserID" Type="Db_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Db_Product" Member="Db_Products">
+    <Type Name="Db_Product">
+      <Column Name="Pid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pdescrip" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pstock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pcost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Psellingprice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Db_Transaction_Db_Product" Member="Db_Transaction" ThisKey="Pid" OtherKey="TransactionID" Type="Db_Transaction" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
